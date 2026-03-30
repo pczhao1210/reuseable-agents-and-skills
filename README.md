@@ -2,6 +2,8 @@
 
 一个用于沉淀可复用 `skill` 与 `custom agent` 资产的仓库，适用于 VS Code / Copilot / Codex 等智能体工作流。
 
+当前仓库以技能定义为主，配套沉淀脚本、模板、静态资源、参考资料，以及可直接放入平台使用的 custom agent 配置。
+
 ## 项目目标
 
 集中管理可复用的智能体能力定义，便于跨项目复用、迭代和规范化维护，主要包括：
@@ -12,10 +14,19 @@
 
 - `.agents/skills/`: 技能目录
 - `.agents/skills/<skill-name>/SKILL.md`: 技能主定义和执行说明
-- `.agents/skills/<skill-name>/references/`（可选）: 技能引用文档
+- `.agents/skills/<skill-name>/references/` 或 `.agents/skills/<skill-name>/reference/`（可选）: 技能引用文档
 - `.agents/skills/<skill-name>/scripts/`（可选）: 技能辅助脚本
-- `.agents/agents/`（如存在）: custom agent 定义目录
-- `.agents/agents/<agent-name>/`（如存在）: 单个 custom agent 的配置与提示词
+- `.agents/skills/<skill-name>/templates/`（可选）: 技能模板文件
+- `.agents/skills/<skill-name>/assets/`（可选）: 图标、样例文件或其它静态资源
+- `.agents/skills/<skill-name>/agents/`（可选）: 面向特定模型或运行时的补充配置
+- `.agents/skills/<skill-name>/canvas-fonts/`（少数技能）: 设计类技能附带字体资源
+- `.github/agents/`: custom agent 定义目录
+
+## 仓库概览
+
+- Skills: 21 个
+- Custom Agents: 2 个
+- 常见附属资产类型: `scripts`、`reference(s)`、`templates`、`assets`、`agents`、字体资源
 
 ## Skill 列表（当前仓库）
 
@@ -35,12 +46,13 @@
 | 12 | `pdf` | PDF 读写、拆分合并、OCR、水印与表单处理。 |
 | 13 | `playwright` | 基于 CLI 的浏览器自动化与页面交互。 |
 | 14 | `playwright-interactive` | 通过持久会话进行交互式 UI 调试。 |
-| 15 | `pptx` | 幻灯片创建、编辑、解析与重组。 |
-| 16 | `sql-code-review` | SQL 安全性、可维护性与质量审查。 |
-| 17 | `sql-optimization` | SQL 性能优化与索引/查询调优。 |
-| 18 | `theme-factory` | 为文档/页面/演示应用主题与视觉风格。 |
-| 19 | `web-artifacts-builder` | 构建复杂 HTML 前端 artifacts（React/Tailwind/shadcn）。 |
-| 20 | `xlsx` | 电子表格文件（xlsx/csv/tsv）处理与生成。 |
+| 15 | `ppt-master` | 多格式内容到 SVG/PPTX 的演示文稿生成流水线。 |
+| 16 | `pptx` | 幻灯片创建、编辑、解析与重组。 |
+| 17 | `sql-code-review` | SQL 安全性、可维护性与质量审查。 |
+| 18 | `sql-optimization` | SQL 性能优化与索引/查询调优。 |
+| 19 | `theme-factory` | 为文档/页面/演示应用主题与视觉风格。 |
+| 20 | `web-artifacts-builder` | 构建复杂 HTML 前端 artifacts（React/Tailwind/shadcn）。 |
+| 21 | `xlsx` | 电子表格文件（xlsx/csv/tsv）处理与生成。 |
 
 ## Custom Agent 列表（当前仓库）
 
@@ -49,12 +61,12 @@
 | 序号 | Agent | 简要说明 |
 |---|---|---|
 | 1 | `code-review-and-planning` | 仓库只读审查与规划，输出中文审查报告和待办清单。 |
-| 2 | `high-risk-secret-scan` | 高危 secrets 静态扫描，输出脱敏风险报告。 |
+| 2 | `high-risk-secret-scan` | 高危 secrets 静态扫描；其 frontmatter 名称为 `code-high-risk-secrets-scan`。 |
 
 ## 使用方式
 
 1. 在 `.agents/skills/<skill-name>/SKILL.md` 新增或更新技能。
-2. 在 custom agent 目录中维护对应 agent 的定义文件（按你的实际规范放置）。
+2. 在 `.github/agents/` 中维护对应 agent 的定义文件。
 3. 保持 `SKILL.md` frontmatter 字段合法，常用支持字段包括：
    - `name`
    - `description`
