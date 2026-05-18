@@ -5,11 +5,11 @@ SKILLS_DIR=".agents/skills"
 OUTPUT_FILE="${1:-exported_skills.zip}"
 
 log() {
-  printf '[pack_skills] %s\n' "$*"
+  printf '[export_skills] %s\n' "$*"
 }
 
 fail() {
-  printf '[pack_skills] ERROR: %s\n' "$*" >&2
+  printf '[export_skills] ERROR: %s\n' "$*" >&2
   exit 1
 }
 

@@ -94,7 +94,7 @@
 导出全部可发现技能为 zip 包：
 
 ```bash
-./pack_skills.sh
+./export_skills.sh
 ```
 
 默认输出 `exported_skills.zip`，压缩包内路径为 `skills/<skill-name>/...`，并会解引用软链接，把上游 skill 的真实文件内容打包进去，方便拷贝到其他环境使用。
