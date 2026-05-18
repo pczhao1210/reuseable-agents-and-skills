@@ -30,3 +30,6 @@ temp/
 
 # Generated presentation workspaces
 projects/
+
+# Packaged skill exports
+exported_skills.zip

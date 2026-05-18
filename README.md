@@ -91,6 +91,14 @@
 
 更新后提交 `.upstream/*` 的 gitlink 变化和必要的软链接变化。
 
+导出全部可发现技能为 zip 包：
+
+```bash
+./pack_skills.sh
+```
+
+默认输出 `exported_skills.zip`，压缩包内路径为 `skills/<skill-name>/...`，并会解引用软链接，把上游 skill 的真实文件内容打包进去，方便拷贝到其他环境使用。
+
 1. 在 `.agents/skills/<skill-name>/SKILL.md` 新增或更新技能。
 2. 在 `.github/agents/` 中维护对应 agent 的定义文件。
 3. 保持 `SKILL.md` frontmatter 字段合法，常用支持字段包括：
