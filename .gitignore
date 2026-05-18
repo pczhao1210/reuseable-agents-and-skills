@@ -1,0 +1,32 @@
+# OS and editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Python cache and tooling output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node dependencies and build output
+node_modules/
+dist/
+build/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+tmp/
+temp/
+
+# Generated presentation workspaces
+projects/

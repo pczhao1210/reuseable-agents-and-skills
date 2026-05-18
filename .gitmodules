@@ -1,0 +1,10 @@
+[submodule "ppt-master"]
+	path = .upstream/ppt-master
+	url = https://github.com/hugohe3/ppt-master.git
+	branch = main
+	shallow = true
+[submodule "azure-skills"]
+	path = .upstream/azure-skills
+	url = https://github.com/microsoft/azure-skills.git
+	branch = main
+	shallow = true
